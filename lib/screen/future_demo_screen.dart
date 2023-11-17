@@ -35,7 +35,7 @@ class _FutureDemoScreenState extends State<FutureDemoScreen> {
   }
 
   Future<String> _fetchData() async {
-    await Future.delayed(Duration(seconds: 2));
+    await Future.delayed(Duration(seconds: 10));
     return 'Welcome to using Future Async Function!';
   }
 }

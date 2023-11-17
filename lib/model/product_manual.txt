@@ -1,0 +1,25 @@
+
+class Product {
+
+  String? id;
+  String? name;
+  String? price;
+  String? image;
+
+  Product(this.id, this.name, this.price, this.image);
+
+  Map<String,dynamic> toJson(){
+    return {
+      'id' : id,
+      'name': name,
+      'price':price,
+      'image':image
+    };
+  }
+
+  Product.fromJson(Map<String,dynamic> json) :
+      id = json['id'],
+      name = json['name'],
+      price = json['price'],
+      image = json['image'];
+}

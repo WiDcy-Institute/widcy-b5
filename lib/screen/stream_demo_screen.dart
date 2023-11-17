@@ -46,7 +46,7 @@ class _StreamDemoScreenState extends State<StreamDemoScreen> {
 
   void _startCounting() async {
     for (int i = 1; i <= 5; i++) {
-      await Future.delayed(Duration(seconds: 1));
+      await Future.delayed(Duration(seconds: 2));
       _streamController.add(i);
     }
   }
