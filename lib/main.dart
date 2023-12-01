@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:widcy/order_screen.dart';
 import 'package:widcy/screen/future_demo_screen.dart';
 import 'package:widcy/screen/network_demo_screen.dart';
+import 'package:widcy/screen/storage_demo_screen.dart';
 import 'package:widcy/screen/stream_demo_screen.dart';
 import 'package:widcy/splash_screen.dart';
 
@@ -24,7 +25,7 @@ class MyApp extends StatelessWidget {
       // home:  SplashScreen(),
       // home:  StreamDemoScreen(),
       // home:  FutureDemoScreen(),
-      home:  NetworkDemoScreen(),
+      home:  StorageDemoScreen(),
     );
   }
 }

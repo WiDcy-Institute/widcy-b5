@@ -42,7 +42,7 @@ class _NetworkDemoScreenState extends State<NetworkDemoScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Network Demo"),
+        title: Text("SHOP APP"),
       ),
       body: Center(
         child: FutureBuilder<List<Product>>(
