@@ -21,12 +21,13 @@ class _StorageDemoScreenState extends State<StorageDemoScreen> {
   }
    Future<void> saveData() async {
     SharedPreferences sPref = await pref;
-    sPref.setString("school","WIDCY Institute2");
+    List<String> productStr  = List.generate(20, (index) => "Item ${index}");
+    sPref.setStringList("products",productStr);
    }
 
-   Future<String> getData() async{
+   Future<List<String>> getData() async{
     SharedPreferences sPref = await pref;
-    return sPref.getString("school") ?? "" ;
+    return sPref.getStringList("products") ?? [];
    }
 
   @override
@@ -34,21 +35,38 @@ class _StorageDemoScreenState extends State<StorageDemoScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text("Storage Demo"),
+        actions: [
+          Padding(padding: EdgeInsets.only(right: 100),
+          child:  Icon(Icons.add, color: Colors.white,),)
+          ],
       ),
       body: Center(
-        child: getSchoolInfo,
+        child: buildProductListWidget,
       ),
     );
   }
 
-  Widget get getSchoolInfo{
+  Widget get buildProductListWidget{
     return FutureBuilder(
         future: getData(),
-        builder: (BuildContext context , AsyncSnapshot<String> snapshot) {
+        builder: (BuildContext context , AsyncSnapshot<List<String>> snapshot) {
 
           if(snapshot.connectionState == ConnectionState.done){
             if(snapshot.hasData){
-              return Text(snapshot.data.toString());
+              List<String> productItems = snapshot.data ?? [];
+
+              return ListView.builder(
+                  itemCount: productItems.length,
+                  itemBuilder: (context, index) {
+                  return Card(
+                    elevation: 5,
+                    child: ListTile(
+                      trailing: Icon(Icons.navigate_next),
+                      title: Text("${productItems[index]}"),
+                      leading: Icon(Icons.add),
+                    ),
+                  );
+              });
             }else{
               return Text("No Data");
             }
