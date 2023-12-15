@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "726133835278",
+    "project_id": "widcy-ebba3",
+    "storage_bucket": "widcy-ebba3.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726133835278:android:e1f6531cd4c4c359c01e5f",
+        "android_client_info": {
+          "package_name": "com.widcyinstitute.b5"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjJbXVlAHoXT5BUIa6LKU4jPwPIs3uW7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:726133835278:android:2d9cf5394925c4c8c01e5f",
+        "android_client_info": {
+          "package_name": "kh.edu.widcy.mobile"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjJbXVlAHoXT5BUIa6LKU4jPwPIs3uW7E"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

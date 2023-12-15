@@ -1,5 +1,8 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.widcy">
+
+    <uses-permission android:name="android.permission.INTERNET"/>
+    
    <application
         android:label="widcy"
         android:name="${applicationName}"
@@ -30,5 +33,10 @@
         <meta-data
             android:name="flutterEmbedding"
             android:value="2" />
+
+       <meta-data
+           android:name="com.google.firebase.components:com.google.firebase.auth.FirebaseAuthRegistrar"
+           android:value="com.google.firebase.components.ComponentRegistrar" />
+
     </application>
 </manifest>

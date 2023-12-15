@@ -1,30 +1,26 @@
 
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:widcy/model/product.dart';
-import 'package:widcy/screen/product_detail_screen.dart';
+import 'package:widcy/service/firebase_database_service.dart';
 import 'package:widcy/service/product_service.dart';
 
+class FirebaseDBScreen extends StatefulWidget {
 
-class NetworkDemoScreen extends StatefulWidget {
-
-  const NetworkDemoScreen({super.key});
+  FirebaseDBScreen({super.key});
 
   @override
-  State<NetworkDemoScreen> createState() => _NetworkDemoScreenState();
+  State<FirebaseDBScreen> createState() => _FirebaseDBScreenState();
 }
 
-class _NetworkDemoScreenState extends State<NetworkDemoScreen> {
-
-  @override
-  void initState() {
-    super.initState();
-  }
+class _FirebaseDBScreenState extends State<FirebaseDBScreen> {
 
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       appBar: AppBar(
-        title: Text("SHOP APP"),
+        title: Text("Firebase Realtime Database"),
       ),
       body: Center(
         child: FutureBuilder<List<Product>>(
@@ -55,18 +51,13 @@ class _NetworkDemoScreenState extends State<NetworkDemoScreen> {
                         )
                     ),
                     onTap: (){
-                      navigatorToProductDetail(product);
+                      //navigatorToProductDetail(product);
                     },
                   );
-            }));
+                }));
           },
         ),
       )
     );
-  }
-
-  void navigatorToProductDetail(Product product){
-    final route = MaterialPageRoute(builder: (context) => ProductDetailScreen(product: product,));
-    Navigator.push(context, route);
   }
 }
