@@ -49,6 +49,7 @@ class DefaultFirebaseOptions {
     messagingSenderId: '726133835278',
     projectId: 'widcy-ebba3',
     authDomain: 'widcy-ebba3.firebaseapp.com',
+    databaseURL: 'https://widcy-ebba3-default-rtdb.firebaseio.com',
     storageBucket: 'widcy-ebba3.appspot.com',
     measurementId: 'G-1SMW2XQMCQ',
   );
@@ -58,6 +59,7 @@ class DefaultFirebaseOptions {
     appId: '1:726133835278:android:e1f6531cd4c4c359c01e5f',
     messagingSenderId: '726133835278',
     projectId: 'widcy-ebba3',
+    databaseURL: 'https://widcy-ebba3-default-rtdb.firebaseio.com',
     storageBucket: 'widcy-ebba3.appspot.com',
   );
 
@@ -66,6 +68,7 @@ class DefaultFirebaseOptions {
     appId: '1:726133835278:ios:8f96f6c3d749166cc01e5f',
     messagingSenderId: '726133835278',
     projectId: 'widcy-ebba3',
+    databaseURL: 'https://widcy-ebba3-default-rtdb.firebaseio.com',
     storageBucket: 'widcy-ebba3.appspot.com',
     iosBundleId: 'com.example.widcy',
   );
@@ -75,6 +78,7 @@ class DefaultFirebaseOptions {
     appId: '1:726133835278:ios:8f96f6c3d749166cc01e5f',
     messagingSenderId: '726133835278',
     projectId: 'widcy-ebba3',
+    databaseURL: 'https://widcy-ebba3-default-rtdb.firebaseio.com',
     storageBucket: 'widcy-ebba3.appspot.com',
     iosBundleId: 'com.example.widcy',
   );

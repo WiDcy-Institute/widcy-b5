@@ -1,39 +1,24 @@
-import 'package:easy_localization/easy_localization.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:widcy/screen/order_screen.dart';
-import 'package:widcy/screen/firebase_auth_demo_screen.dart';
-import 'package:widcy/screen/future_demo_screen.dart';
-import 'package:widcy/screen/localization_demo_screen.dart';
-import 'package:widcy/screen/network_demo_screen.dart';
-import 'package:widcy/screen/storage_demo_screen.dart';
-import 'package:widcy/screen/stream_demo_screen.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:provider/provider.dart';
 import 'package:widcy/screen/splash_screen.dart';
+import 'package:widcy/util/language_provider.dart';
 
 import 'firebase_options.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+  LanguageProvider languageProvider = LanguageProvider();
+  languageProvider.fetchLocale();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
-  await EasyLocalization.ensureInitialized();
-  final myApp = MyApp();
-
-  EasyLocalization easyLocalization = EasyLocalization(
-      child: myApp,
-      supportedLocales: [
-        Locale('en', 'US'),
-        Locale('km', 'KH')
-      ],
-      path: 'assets/lang',
-    fallbackLocale: Locale('en', 'US'),
-    startLocale: Locale('en', 'US'),
-    saveLocale: false,
-    useOnlyLangCode: true,
+  runApp(
+      App(languageProvider: languageProvider,)
   );
-  runApp(easyLocalization);
 }
 
 final FirebaseMessaging _firebaseMessaging = FirebaseMessaging.instance;
@@ -65,24 +50,35 @@ Future<void> myBackgroundMessageHandler(RemoteMessage message) async {
   // Display a notification or update the UI.
 }
 
-class MyApp extends StatelessWidget {
 
-  const MyApp({super.key});
+class App extends StatelessWidget {
+
+  final LanguageProvider languageProvider;
+
+  App({required this.languageProvider});
 
   @override
   Widget build(BuildContext context) {
 
-    return MaterialApp(
-      localizationsDelegates: context.localizationDelegates,
-      supportedLocales: context.supportedLocales,
-      locale: context.locale,
-      title: 'WiDcy Institute',
-      theme: ThemeData(
-        primarySwatch: Colors.blue,
-        fontFamily: 'Hanuman'
-      ),
-      debugShowCheckedModeBanner: false,
-      home:  SplashScreen(),
+    return ChangeNotifierProvider(
+        create: (context) => languageProvider,
+        builder: (context, child) {
+          final provider = Provider.of<LanguageProvider>(context);
+          return MaterialApp(
+            localizationsDelegates: AppLocalizations.localizationsDelegates,
+            supportedLocales: AppLocalizations.supportedLocales,
+            locale: provider.appLocal,
+            onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
+            theme: ThemeData(
+              colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+              useMaterial3: true,
+              primarySwatch: Colors.blue,
+              fontFamily: 'Hanuman'
+            ),
+            debugShowCheckedModeBanner: false,
+            home:  SplashScreen(),
+          );
+        }
     );
   }
 }

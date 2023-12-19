@@ -56,6 +56,9 @@ class _HomeScreenState extends State<HomeScreen> {
               padding: EdgeInsets.only(right: 16),
               child: Icon(Icons.more_vert, color: Colors.white),
             ),
+            onTap: (){
+
+            },
           )
         ],
       ),

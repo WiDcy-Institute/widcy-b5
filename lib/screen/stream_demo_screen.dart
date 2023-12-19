@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 
 class StreamDemoScreen extends StatefulWidget {
+
   const StreamDemoScreen({super.key});
 
   @override

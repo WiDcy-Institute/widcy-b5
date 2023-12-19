@@ -1,7 +1,8 @@
-
 import 'package:flutter/material.dart';
+import 'package:widcy/screen/firebase_db_screen.dart';
 import 'package:widcy/screen/home_screen.dart';
 import 'package:widcy/screen/main_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class SplashScreen extends StatefulWidget {
 
@@ -50,7 +51,7 @@ class SplashScreenState extends State<SplashScreen>{
                       borderRadius: BorderRadius.circular(30.0)),
                   minimumSize: const Size(100, 40),
                 ),
-                child: Text("Get Start", )
+              child: Text(AppLocalizations.of(context)!.getStart!),
             )
           ],
         )
@@ -59,6 +60,7 @@ class SplashScreenState extends State<SplashScreen>{
 
   void navigationToHomeScreen(){
     final route = MaterialPageRoute(builder: (context) => MainScreen());
+    //final route = MaterialPageRoute(builder: (context) => FirebaseDBScreen());
     Navigator.pushReplacement(context, route);
   }
 }

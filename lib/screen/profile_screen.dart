@@ -1,5 +1,6 @@
-
 import 'package:flutter/material.dart';
+import 'package:widcy/screen/language_screen.dart';
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreen extends StatefulWidget {
   const ProfileScreen({super.key});
@@ -25,57 +26,73 @@ class _ProfileScreenState extends State<ProfileScreen> {
           )
         ],
       ),
-      body: Stack(
-        alignment: Alignment.topCenter,
+      body: ListView(
         children: [
-          Positioned(
-            left:0,
-            top:40,
-            right: 0,
-            child:  CircleAvatar(
-              radius: 64,
-              backgroundImage: AssetImage("assets/profile/profile.png"),
-            ),
-          ),
-          Opacity(
-              opacity: 0.5, //from 0-1, 0.5 = 50% opacity
-              child: Container(
-                height: 200,
-                decoration: BoxDecoration(
-                  image: DecorationImage(
-                    image: AssetImage('assets/profile/banner.jpg'),
-                    colorFilter: new ColorFilter.mode(Colors.white, BlendMode.dstOver),
-                    fit: BoxFit.cover,
+          Stack(
+            alignment: Alignment.topCenter,
+            children: [
+              Positioned(
+                left:0,
+                top:40,
+                right: 0,
+                child:  CircleAvatar(
+                  radius: 64,
+                  backgroundImage: AssetImage("assets/profile/profile.png"),
+                ),
+              ),
+              Opacity(
+                opacity: 0.5, //from 0-1, 0.5 = 50% opacity
+                child: Container(
+                  height: 200,
+                  decoration: BoxDecoration(
+                    image: DecorationImage(
+                      image: AssetImage('assets/profile/banner.jpg'),
+                      colorFilter: new ColorFilter.mode(Colors.white, BlendMode.dstOver),
+                      fit: BoxFit.cover,
+                    ),
                   ),
                 ),
               ),
-          ),
 
-          Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(height: 16),
-                Text(
-                  'John Doe',
-                  style: TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.white,
-                  ),
+              Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    SizedBox(height: 16),
+                    Text(
+                      'John Doe',
+                      style: TextStyle(
+                        fontSize: 24,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white,
+                      ),
+                    ),
+                    Text(
+                      'Software Engineer',
+                      style: TextStyle(
+                        fontSize: 16,
+                        color: Colors.white70,
+                      ),
+                    ),
+                  ],
                 ),
-                Text(
-                  'Software Engineer',
-                  style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.white70,
-                  ),
-                ),
-              ],
-            ),
+              ),
+            ],
           ),
+          GestureDetector(
+            child: ListTile(
+              // title: Text(AppLocalizations.of(context)!.language),
+              title: Text(AppLocalizations.of(context)!.language),
+                leading: Icon(Icons.language),
+               trailing: Icon(Icons.navigate_next),
+            ),
+            onTap: (){
+              final route = MaterialPageRoute(builder: (context) => LanguageScreen());
+              Navigator.push(context, route);
+            },
+          )
         ],
-      ),
+      )
     );
   }
 

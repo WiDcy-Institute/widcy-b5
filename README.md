@@ -1,16 +1,25 @@
 # widcy
 
-WIDCYApp
+# Install Library
 
-## Getting Started
+    flutter clean
+    flutter pub get
 
-This project is a starting point for a Flutter application.
+# Run Release Project
+    
+    flutter run --release
 
-A few resources to get you started if this is your first Flutter project:
+# Localization 
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+    flutter pub add flutter_localizations --sdk=flutter
+    flutter pub add intl:any
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+    create folder /lib/l10n
+
+    flutter gen-l10n
+
+# State Management 
+    
+    flutter pub add provider
+    flutter pub add shared_preferences
+    
