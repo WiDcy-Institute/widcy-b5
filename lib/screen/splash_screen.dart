@@ -51,7 +51,7 @@ class SplashScreenState extends State<SplashScreen>{
                       borderRadius: BorderRadius.circular(30.0)),
                   minimumSize: const Size(100, 40),
                 ),
-              child: Text(AppLocalizations.of(context)!.getStart!),
+              child: Text(AppLocalizations.of(context)!.getStart),
             )
           ],
         )

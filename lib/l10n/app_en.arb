@@ -5,5 +5,22 @@
   "language":"Language",
   "changeLanguage":"Change language",
   "khmerLanguage":"Khmer language",
-  "englishLanguage":"English language"
+  "englishLanguage":"English language",
+  "faculty":"Faculty",
+  "news":"News",
+  "home":"Home",
+  "more":"More",
+  "profile":"Profile",
+  "success":"Success",
+  "failure":"Failure",
+  "notification":"Notification",
+  "noDataFound":"No data found",
+  "error":"Error",
+  "username":"Username",
+  "email":"Email",
+  "password":"Password",
+  "register":"Register",
+  "login":"Login",
+  "phone":"Phone number",
+  "logout":"Logout"
 }

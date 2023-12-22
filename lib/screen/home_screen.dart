@@ -1,4 +1,4 @@
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:image_card/image_card.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
@@ -54,6 +54,15 @@ class _HomeScreenState extends State<HomeScreen> {
           GestureDetector(
             child: Padding(
               padding: EdgeInsets.only(right: 16),
+              child: Icon(Icons.notifications, color: Colors.white),
+            ),
+            onTap: (){
+
+            },
+          ),
+          GestureDetector(
+            child: Padding(
+              padding: EdgeInsets.only(right: 16),
               child: Icon(Icons.more_vert, color: Colors.white),
             ),
             onTap: (){
@@ -80,7 +89,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("Course", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
+          Text(AppLocalizations.of(context)!.faculty, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
           GestureDetector(
             child: Icon(Icons.navigate_next),
             onTap: (){
@@ -97,7 +106,7 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text("News", style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
+          Text(AppLocalizations.of(context)!.news, style: TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
           GestureDetector(
             child: Icon(Icons.navigate_next),
             onTap: (){

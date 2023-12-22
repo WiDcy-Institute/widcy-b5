@@ -3,6 +3,7 @@ import 'package:widcy/screen/language_screen.dart';
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 
 class ProfileScreen extends StatefulWidget {
+
   const ProfileScreen({super.key});
 
   @override
@@ -15,8 +16,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Profile", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
+        title: Text(AppLocalizations.of(context)!.profile, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
         backgroundColor: Colors.blueAccent,
+        centerTitle: true,
         actions: [
           GestureDetector(
             child: Padding(
@@ -35,13 +37,17 @@ class _ProfileScreenState extends State<ProfileScreen> {
                 left:0,
                 top:40,
                 right: 0,
-                child:  CircleAvatar(
-                  radius: 64,
-                  backgroundImage: AssetImage("assets/profile/profile.png"),
+                child:  Container(
+                  width: 100,
+                  height: 100,
+                  child: CircleAvatar(
+                    radius: 100,
+                    child: Icon(Icons.account_circle,size: 100,)
+                  ),
                 ),
               ),
               Opacity(
-                opacity: 0.5, //from 0-1, 0.5 = 50% opacity
+                opacity: 0.2, //from 0-1, 0.5 = 50% opacity
                 child: Container(
                   height: 200,
                   decoration: BoxDecoration(
@@ -79,12 +85,22 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
             ],
           ),
-          GestureDetector(
+          Card(
+            elevation: 0.2,
             child: ListTile(
-              // title: Text(AppLocalizations.of(context)!.language),
-              title: Text(AppLocalizations.of(context)!.language),
+              title: Text(AppLocalizations.of(context)!.username),
+              leading: Icon(Icons.supervised_user_circle),
+              trailing: Icon(Icons.navigate_next),
+            ),
+          ),
+          GestureDetector(
+            child: Card(
+              elevation: 0.2,
+              child: ListTile(
+                title: Text(AppLocalizations.of(context)!.language),
                 leading: Icon(Icons.language),
-               trailing: Icon(Icons.navigate_next),
+                trailing: Icon(Icons.navigate_next),
+              ),
             ),
             onTap: (){
               final route = MaterialPageRoute(builder: (context) => LanguageScreen());

@@ -2,7 +2,6 @@ import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:firebase_messaging/firebase_messaging.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:provider/provider.dart';
 import 'package:widcy/screen/splash_screen.dart';
 import 'package:widcy/util/language_provider.dart';
@@ -16,6 +15,7 @@ void main() async {
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,
   );
+  setupFirebaseMessaging();
   runApp(
       App(languageProvider: languageProvider,)
   );
@@ -71,7 +71,7 @@ class App extends StatelessWidget {
             onGenerateTitle: (context) => AppLocalizations.of(context)!.appTitle,
             theme: ThemeData(
               colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-              useMaterial3: true,
+              // useMaterial3: true,
               primarySwatch: Colors.blue,
               fontFamily: 'Hanuman'
             ),

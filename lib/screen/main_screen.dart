@@ -1,4 +1,4 @@
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:widcy/screen/academic_screen.dart';
 import 'package:widcy/screen/course_screen.dart';
@@ -40,22 +40,22 @@ class _MainScreenState extends State<MainScreen> {
         items: <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: AppLocalizations.of(context)!.home,
             backgroundColor:Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.school),
-            label: 'Academic',
+            label: AppLocalizations.of(context)!.faculty,
             backgroundColor:Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.book),
-            label: 'News',
+            label: AppLocalizations.of(context)!.news,
             backgroundColor:Colors.blueAccent,
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.supervised_user_circle),
-            label: 'Profile',
+            label: AppLocalizations.of(context)!.profile,
             backgroundColor:Colors.blueAccent,
           ),
         ],

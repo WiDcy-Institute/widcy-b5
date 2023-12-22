@@ -1,4 +1,4 @@
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:image_card/image_card.dart';
 
@@ -28,7 +28,7 @@ class _AcademicScreenState extends State<AcademicScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("Academic", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
+        title: Text(AppLocalizations.of(context)!.faculty, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
         backgroundColor: Colors.blueAccent,
         actions: [
           GestureDetector(

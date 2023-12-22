@@ -1,19 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:widcy/model/product.dart';
 
 class FirebaseFirestoreService {
 
   String collectionName = "product";
 
-  Future<void> readDocuments(String collectionName) async {
+  Future<List<Product>> readDocuments(String collectionName) async {
     try {
       QuerySnapshot querySnapshot = await FirebaseFirestore.instance.collection(collectionName).get();
       List<DocumentSnapshot> documents = querySnapshot.docs;
       for (var document in documents) {
         print('Document ID: ${document.id}');
         print('Data: ${document.data()}');
+        print('Data: ${document["currency"]}');
       }
+      List<Product> products = documents.map((document) => Product(document.id, document["name"], "${document["price"]}", "")).toList();
+      return products;
     } catch (e) {
       print('Error reading documents: $e');
+      throw("Error loading data : $e");
     }
   }
 

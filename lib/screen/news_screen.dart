@@ -1,9 +1,11 @@
-
-
+import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:image_card/image_card.dart';
+import 'package:widcy/model/product.dart';
+import '../service/firebase_firestore_service.dart';
 
 class NewsScreen extends StatefulWidget {
+
   const NewsScreen({super.key});
 
   @override
@@ -11,6 +13,11 @@ class NewsScreen extends StatefulWidget {
 }
 
 class _NewsScreenState extends State<NewsScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +34,7 @@ class _NewsScreenState extends State<NewsScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        title: Text("News", style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
+        title: Text(AppLocalizations.of(context)!.news, style: TextStyle(color: Colors.white, fontWeight: FontWeight.bold,fontFamily: 'NotoSansKhmer'),),
         backgroundColor: Colors.blueAccent,
         actions: [
           GestureDetector(
@@ -44,8 +51,44 @@ class _NewsScreenState extends State<NewsScreen> {
           )
         ],
       ),
-      body: ListView(
-        children: data,
+      // body: ListView(
+      //   children: data,
+      // ),
+      body: Center(
+        child: FutureBuilder<List<Product>>(
+          future: FirebaseFirestoreService().readDocuments("product"),
+          builder: (BuildContext context, AsyncSnapshot<List<Product>> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return CircularProgressIndicator();
+            }
+
+            if (snapshot.hasError) {
+              return Text('Error: ${snapshot.error}');
+            }
+            List<Product> products = snapshot.data as List<Product>;
+            return ListView.builder(
+                itemCount: products.length,
+                itemBuilder: ((context, index)  {
+
+                  Product product = products[index];
+
+                  return GestureDetector(
+                    child: Card(
+                        elevation: 3,
+                        child:ListTile(
+                          leading: Image.network("http://localhost/shopapi/${product.image}"),
+                          title: Text("${product.name}"),
+                          subtitle: Text("${product.price}"),
+                          trailing: Icon(Icons.navigate_next),
+                        )
+                    ),
+                    onTap: (){
+                      //navigatorToProductDetail(product);
+                    },
+                  );
+                }));
+          },
+        ),
       ),
     );
   }
