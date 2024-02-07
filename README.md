@@ -22,4 +22,7 @@
     
     flutter pub add provider
     flutter pub add shared_preferences
-    
+
+# JsonSerializable
+
+    flutter pub run build_runner build

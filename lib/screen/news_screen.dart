@@ -76,7 +76,8 @@ class _NewsScreenState extends State<NewsScreen> {
                     child: Card(
                         elevation: 3,
                         child:ListTile(
-                          leading: Image.network("http://localhost/shopapi/${product.image}"),
+                          // leading: Image.network("http://localhost/shopapi/${product.image}"),
+                          leading: Image.asset('images/slide.jpg'),
                           title: Text("${product.name}"),
                           subtitle: Text("${product.price}"),
                           trailing: Icon(Icons.navigate_next),

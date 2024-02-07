@@ -1,8 +1,10 @@
 import 'package:flutter_gen/gen_l10n/app_localizations.dart';
 import 'package:flutter/material.dart';
 import 'package:image_card/image_card.dart';
+import 'package:widcy/service/firebase_database_service.dart';
 
 class AcademicScreen extends StatefulWidget {
+
   const AcademicScreen({super.key});
 
   @override
@@ -10,6 +12,12 @@ class AcademicScreen extends StatefulWidget {
 }
 
 class _AcademicScreenState extends State<AcademicScreen> {
+
+  @override
+  void initState() {
+    super.initState();
+    FirebaseDatabaseService().readData("test");
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -23,8 +31,9 @@ class _AcademicScreenState extends State<AcademicScreen> {
               imageProvider: AssetImage('images/slide.jpg'),
               title: Text("ថ្នាក់សិក្សាវគ្គខ្លីភាសាអង់គ្លេស", style: TextStyle(color: Colors.white),),
               description: Text("15-Dec-2023", style: TextStyle(color: Colors.white),),
-            )));
-
+            )
+        )
+    );
 
     return Scaffold(
       appBar: AppBar(
